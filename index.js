@@ -1,3 +1,42 @@
+var texts = {
+	games:	"# This is a comment, because it begins with '#'\n" +
+			"genre\n" +
+			"Ball and paddle,Beat'em up,hack and slash,Fighting,Mascot Fighting,Maze,Pinball,Platform,Shooter,Shoot 'em up,Rail shooter,Action Adventure,Stealth,Survival,Rogue Like,Sandbox RPG,Action RPG,Tactical RPG,Construction and management simulation,Life simulation,Artillery,4X,Real-time strategy,Real-time tactics,Tower defense,Turn-based strategy,Turn-based tactics,War,Racing,Dating\n" +
+			"\n" +
+			"#Each set of variables begins with a name, followed by words separated by commas\n" +
+			"pacing\n" +
+			"contemplative,casual, normal, harcore, twitch\n" +
+			"\n" +
+			"type\n" +
+			"turn-based,very short, asymmetric, cooperative, deathmatch, emergent, hack and slash, micromanagement, nonlinear, passive, twitch, party,meta\n" +
+			"\n" +
+			"time\n" +
+			"bullet time,turn,real time\n" +
+			"\n" +
+			"view\n" +
+			"text,top-down,side scroller,3D third person, first-person\n" +
+			"\n" +
+			"style\n" +
+			"minimalist, low-poly, pixelart, high fidelity, gritty reality, abstract, cel-shaded\n" +
+			"\n" +
+			"# Increase the weight of an element by prepending a number to it\n" +
+			"# Here, 'mouse and keyboard' is 4 times as likely to appear as 'gamepad'\n" +
+			"controls\n" +
+			"3:mouse and keyboard, mouse only, a gamepad, lots of controls, minimalisting controls, one button only\n" +
+			"\n" +
+			"content\n" +
+			"user-submitted,procedurally generated,lovingly hand-made,minimal and repeated\n" +
+			"\n" +
+			"#Finally, the text that will tie all of that\n" +
+			"#Notice the usage of {{maybe}}, that allows certain variables to be passed one time out of two\n" +
+			"text \n" +
+			"{{maybe:[pacing] }}{{genre}} game with elements of {{genre}} presented, game in {{view}} and drawn in a {{style}} style.{{maybe: content is [content]. }}It plays with {{controls}}{{maybe: and is [time] based}}."
+,	simple: "food\n" +
+			"burger,pizza,sushi\n"+
+			"\n"+
+			"text\n"+
+			"I want to eat {{food}}"
+};
 var generate = (function(){
 	var TokensType = {
 			VAR_NAME:'VAR_NAME'
@@ -135,11 +174,21 @@ jQuery(function($){
 			$container.prepend(quote);
 			quote.hide().slideDown();
 		}
+	,	changeText = function(text,bypass){
+			if(bypass || window.confirm("Do you want to change your text?")){
+				$text.val(text);
+			}
+		}
 	,	$button = $('#Button').on('click',function(evt){
 			createText();
 			evt.preventDefault();
 			return false;
 		})
+	,	$examples = $('a.example').on('click',function(evt){
+			var key = $(this).data('text');
+			changeText(texts[key]);
+		});
 	;
+	changeText(texts.games,true);
 	createText();
 });
