@@ -30,7 +30,7 @@ var texts = {
 			"#Finally, the text that will tie all of that\n" +
 			"#Notice the usage of {{maybe}}, that allows certain variables to be passed one time out of two\n" +
 			"text \n" +
-			"{{maybe:[pacing] }}{{genre}} game with elements of {{genre}} presented, game in {{view}} and drawn in a {{style}} style.{{maybe: content is [content]. }}It plays with {{controls}}{{maybe: and is [time] based}}."
+			"{{maybe:[pacing] }}{{genre}} game with elements of {{genre}} game in {{view}} and drawn in a {{style}} style.{{maybe: content is [content]. }}It plays with {{controls}}{{maybe: and is [time] based}}."
 ,	simple: "food\n" +
 			"burger,pizza,sushi\n"+
 			"\n"+
