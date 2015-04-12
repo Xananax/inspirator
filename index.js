@@ -22,7 +22,7 @@ var texts = {
 			"# Increase the weight of an element by prepending a number to it\n" +
 			"# Here, 'mouse and keyboard' is 4 times as likely to appear as 'gamepad'\n" +
 			"controls\n" +
-			"3:mouse and keyboard, mouse only, a gamepad, lots of controls, minimalisting controls, one button only\n" +
+			"3:mouse and keyboard, mouse only, a gamepad, lots of controls, minimalistic controls, one button only\n" +
 			"\n" +
 			"content\n" +
 			"user-submitted,procedurally generated,lovingly hand-made,minimal and repeated\n" +
